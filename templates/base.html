@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>I./JG7 "Nowotny"</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="topbar">
+        <div class="title">I. Gruppe Jagdgeschwader 7 "Nowotny" - {% block title %}{% endblock %}</div>
+        {% if session.get("user") %}
+        <div class="user-area">
+            {{ session.user }}
+            <div class="dropdown">
+                <a href="#">▼</a>
+                <div class="dropdown-content">
+                    <a href="#">User Settings</a>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <div class="sidebar"></div>
+    <div class="main">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
