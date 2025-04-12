@@ -1,1 +1,89 @@
-/* CSS with squadron colors and layout */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #1a3059 50%, #7e5047 50%);
+    background-size: cover;
+    background-attachment: fixed;
+    color: #f0f0f0;
+}
+
+.top-bar {
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.squadron-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.avatar {
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.username {
+    margin-right: 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    right: 0;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #444;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.description, .members {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+.member-list {
+    display: flex;
+    gap: 20px;
+}
+
+.member img {
+    height: 60px;
+    border-radius: 50%;
+}
+
+.member p {
+    margin: 5px 0 0 0;
+    text-align: center;
+}
