@@ -1,1 +1,1 @@
-// Animation logic
+// JS Placeholder
