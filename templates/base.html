@@ -2,28 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>I./JG7 "Nowotny"</title>
+    <title>I./JG7 Nowotny</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    {% if request.path != '/login' and request.path != '/register' %}
     <div class="topbar">
-        <div class="title">I. Gruppe Jagdgeschwader 7 "Nowotny" - {% block title %}{% endblock %}</div>
-        {% if session.get("user") %}
+        <div class="title">I. Gruppe Jagdgeschwader 7 „Nowotny“ – Startseite</div>
         <div class="user-area">
-            {{ session.user }}
-            <div class="dropdown">
-                <a href="#">▼</a>
-                <div class="dropdown-content">
-                    <a href="#">User Settings</a>
-                    <a href="{{ url_for('logout') }}">Logout</a>
-                </div>
-            </div>
+            {{ session.user }} <span class="dropdown-icon">▼</span>
         </div>
-        {% endif %}
     </div>
-    <div class="sidebar"></div>
+    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    <div class="sidebar" id="sidebar">
+        <a href="#">Dashboard</a>
+    </div>
+    {% endif %}
     <div class="main">
         {% block content %}{% endblock %}
     </div>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('collapsed');
+        }
+    </script>
 </body>
 </html>

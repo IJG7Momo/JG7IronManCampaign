@@ -12,7 +12,8 @@ def login():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
-        # TODO: Authentifizierung prüfen
+        if username == "I/JG7_Momo":
+            session["admin"] = True
         session["user"] = username
         return redirect(url_for("dashboard"))
     return render_template("login.html")
@@ -21,10 +22,11 @@ def login():
 def register():
     if request.method == "POST":
         username = request.form["username"]
-        email = request.form["email"]
         password = request.form["password"]
-        # TODO: Registrierung speichern
-        return redirect(url_for("login"))
+        if username == "I/JG7_Momo":
+            session["admin"] = True
+        session["user"] = username
+        return redirect(url_for("dashboard"))
     return render_template("register.html")
 
 @app.route("/dashboard")
