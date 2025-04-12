@@ -15,10 +15,11 @@ body.dashboard {
 }
 .form-card {
     background: white;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    width: 300px;
 }
 input, button {
     margin: 0.5rem 0;
@@ -28,43 +29,69 @@ input, button {
 .topbar {
     background: #d03111;
     color: white;
-    padding: 15px;
-    font-size: 1.5rem;
+    padding: 20px;
+    font-size: 1.6rem;
     font-weight: bold;
     text-align: center;
-    position: relative;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 .user-area {
     position: absolute;
     right: 20px;
-    top: 15px;
+    top: 20px;
 }
 .sidebar {
     width: 200px;
     background: #1a3059;
-    height: 100vh;
+    height: calc(100vh - 70px);
     position: fixed;
-    top: 60px;
+    top: 70px;
     left: 0;
     padding: 1rem;
     transition: transform 0.3s ease;
+    color: white;
 }
 .sidebar.collapsed {
     transform: translateX(-100%);
 }
 .sidebar-toggle {
     position: fixed;
-    top: 15px;
-    left: 15px;
+    top: 20px;
+    left: 20px;
     font-size: 1.5rem;
     cursor: pointer;
     color: white;
+    z-index: 1100;
 }
 .main {
-    margin-left: 220px;
+    margin-top: 70px;
+    margin-left: 200px;
+    background: #f2d1cc;
     padding: 1rem;
+    min-height: calc(100vh - 70px);
+    border-top: 5px solid white;
 }
-.hint {
-    font-size: 0.8rem;
-    color: #333;
+.sidebar a {
+    color: white;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: block;
+    margin: 0.5rem 0;
+}
+.dropdown-icon {
+    margin-left: 0.5rem;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    z-index: 2000;
+}
+.user-area:hover .dropdown-content {
+    display: block;
 }

@@ -5,12 +5,17 @@
     <title>I./JG7 Nowotny</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body>
+<body class="{{ 'login' if request.path == '/login' else 'register' if request.path == '/register' else 'dashboard' }}">
     {% if request.path != '/login' and request.path != '/register' %}
     <div class="topbar">
         <div class="title">I. Gruppe Jagdgeschwader 7 „Nowotny“ – Startseite</div>
         <div class="user-area">
-            {{ session.user }} <span class="dropdown-icon">▼</span>
+            {{ session.user }}
+            <span class="dropdown-icon">▼</span>
+            <div class="dropdown-content">
+                <a href="#">User Settings</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            </div>
         </div>
     </div>
     <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
