@@ -27,55 +27,49 @@ def init_db():
         ''')
 init_db()
 
-@app.route("/")
-def splash():
-    return render_template("index.html")
-
-@app.route("/login", methods=["GET", "POST"])
-def login():
+@app.route("/", methods=["GET", "POST"])
+def index():
     if request.method == "POST":
-        email = request.form["email"]
-        password = request.form["password"]
-        db = get_db()
-        user = db.execute("SELECT * FROM users WHERE email = ?", (email,)).fetchone()
-        if user and check_password_hash(user["password_hash"], password):
-            if user["status"] != "approved":
-                flash("Your account is not approved yet.")
-                return redirect(url_for("login"))
-            session["user_id"] = user["id"]
-            session["username"] = user["username"]
-            session["role"] = user["role"]
-            return redirect(url_for("dashboard"))
-        flash("Invalid credentials.")
-    return render_template("login.html")
+        action = request.form.get("action")
+        email = request.form.get("email")
+        password = request.form.get("password")
 
-@app.route("/register", methods=["GET", "POST"])
-def register():
-    if request.method == "POST":
-        username = request.form["username"]
-        email = request.form["email"]
-        password = request.form["password"]
-        password_hash = generate_password_hash(password)
-        role = "admin" if email == ADMIN_EMAIL else "user"
-        status = "approved" if email == ADMIN_EMAIL else "pending"
-        try:
+        if action == "login":
             db = get_db()
-            db.execute("INSERT INTO users (username, email, password_hash, role, status) VALUES (?, ?, ?, ?, ?)", 
-                       (username, email, password_hash, role, status))
-            db.commit()
-            flash("Registration successful. Please wait for approval." if status == "pending" else "Admin registered.")
-            return redirect(url_for("login"))
-        except sqlite3.IntegrityError:
-            flash("Email already registered.")
-    return render_template("register.html")
+            user = db.execute("SELECT * FROM users WHERE email = ?", (email,)).fetchone()
+            if user and check_password_hash(user["password_hash"], password):
+                if user["status"] != "approved":
+                    flash("Your account is not approved yet.")
+                    return redirect(url_for("index"))
+                session["user_id"] = user["id"]
+                session["username"] = user["username"]
+                session["role"] = user["role"]
+                return redirect(url_for("dashboard"))
+            flash("Invalid credentials.")
+
+        elif action == "register":
+            username = request.form.get("username")
+            password_hash = generate_password_hash(password)
+            role = "admin" if email == ADMIN_EMAIL else "user"
+            status = "approved" if email == ADMIN_EMAIL else "pending"
+            try:
+                db = get_db()
+                db.execute("INSERT INTO users (username, email, password_hash, role, status) VALUES (?, ?, ?, ?, ?)",
+                           (username, email, password_hash, role, status))
+                db.commit()
+                flash("Registration submitted. Wait for approval." if status == "pending" else "Admin registered.")
+                return redirect(url_for("index"))
+            except sqlite3.IntegrityError:
+                flash("Email already registered.")
+    return render_template("index.html")
 
 @app.route("/dashboard")
 def dashboard():
     if "user_id" not in session:
-        return redirect(url_for("login"))
+        return redirect(url_for("index"))
     return render_template("dashboard.html", username=session.get("username"), role=session.get("role"))
 
 @app.route("/logout")
 def logout():
     session.clear()
-    return redirect(url_for("login"))
+    return redirect(url_for("index"))

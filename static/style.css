@@ -40,11 +40,11 @@ body, html {
     margin: 0;
 }
 
-.login-form {
+.form-container {
     text-align: center;
 }
 
-.login-form input {
+form input {
     display: block;
     margin: 1rem auto;
     padding: 0.8rem;
@@ -54,7 +54,7 @@ body, html {
     border-radius: 8px;
 }
 
-.login-form button {
+form button {
     padding: 1rem 2rem;
     font-size: 1.2rem;
     background-color: #1a3059;
@@ -64,7 +64,7 @@ body, html {
     cursor: pointer;
 }
 
-.login-form button:hover {
+form button:hover {
     background-color: #264b87;
 }
 
