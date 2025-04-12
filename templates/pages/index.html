@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+{% block body_class %}landing-body{% endblock %}
+{% block content %}
+<div class="splash-screen" id="splash">
+    <img src="/static/img/logo.png" alt="Logo" class="logo" />
+    <h1 class="title">I. Gruppe</h1>
+    <h2 class="subtitle">Jagdgeschwader 7 Nowotny</h2>
+</div>
+<div class="form-container hidden" id="loginForm">
+    <form method="post">
+        <input type="text" name="username" placeholder="Username (I/JG7_...)" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+    </form>
+</div>
+<script src="/static/js/script.js"></script>
+{% endblock %}
