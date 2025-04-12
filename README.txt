@@ -1,1 +1,0 @@
-Modular JG7 Ironman Campaign Web App with base template, subpages, and optimized structure.
