@@ -18,9 +18,12 @@
             </div>
         </div>
     </div>
-    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    <img src="{{ url_for('static', filename='img/emblem.png') }}" id="emblem-toggle" onclick="toggleSidebar()" />
     <div class="sidebar" id="sidebar">
-        <a href="#">Dashboard</a>
+        <a href="#">🏠 Dashboard</a>
+        <a href="#">🧍 Characters</a>
+        <a href="#">📜 Logs</a>
+        <a href="#">📊 Stats</a>
     </div>
     {% endif %}
     <div class="main">
