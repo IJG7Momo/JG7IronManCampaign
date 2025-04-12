@@ -5,74 +5,86 @@ body, html {
     width: 100%;
     height: 100%;
     font-family: Arial, sans-serif;
-    overflow: hidden;
+    background: linear-gradient(to right, #1a3059 50%, #7e5047 50%);
+    color: #f0f0f0;
 }
-.splash-screen {
+
+.background-layer {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, #1a3059 50%, #7e5047 50%);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    animation: fadeIn 2s ease-in;
-    z-index: 10;
 }
-.splash-content {
+
+.splash-screen {
     text-align: center;
-    color: #ffffff;
     animation: fadeIn 2s ease-in;
 }
+
 .logo {
     width: 200px;
     height: auto;
     margin-bottom: 1rem;
-    animation: fadeIn 2s ease-in;
 }
+
 .title {
-    margin: 0;
     font-size: 2rem;
-    animation: fadeIn 2.5s ease-in;
-}
-.subtitle {
     margin: 0;
+}
+
+.subtitle {
     font-size: 1.5rem;
-    animation: fadeIn 3s ease-in;
+    margin: 0;
 }
-.main-content {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #121212;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+
+.login-form {
+    text-align: center;
 }
-.hidden {
-    display: none;
+
+.login-form input {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.8rem;
+    font-size: 1rem;
+    width: 250px;
+    border: none;
+    border-radius: 8px;
 }
-.login-btn {
+
+.login-form button {
     padding: 1rem 2rem;
     font-size: 1.2rem;
     background-color: #1a3059;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
-.login-btn:hover {
+
+.login-form button:hover {
     background-color: #264b87;
 }
+
+.hidden {
+    display: none;
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.fade-out {
+    animation: fadeOut 1s ease-out forwards;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-.fade-out {
-    animation: fadeOut 1s ease-out forwards;
-}
+
 @keyframes fadeOut {
     from { opacity: 1; }
     to { opacity: 0; visibility: hidden; }
