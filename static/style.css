@@ -1,35 +1,91 @@
 
-body {
-    font-family: Arial, sans-serif;
+body, html {
     margin: 0;
     padding: 0;
-    background-color: #1e1e1e;
-    color: #f0f0f0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
 }
-header {
-    background-color: #333;
-    padding: 1rem;
+
+.splash-screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #1a3059 50%, #7e5047 50%);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
+    animation: fadeIn 2s ease-in;
+    z-index: 10;
 }
-header h1 {
+
+.splash-content {
+    text-align: center;
+    color: #ffffff;
+    animation: fadeIn 2s ease-in;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 1rem;
+    animation: fadeIn 2s ease-in;
+}
+
+.title {
+    margin: 0;
+    font-size: 2rem;
+    animation: fadeIn 2.5s ease-in;
+}
+
+.subtitle {
     margin: 0;
     font-size: 1.5rem;
+    animation: fadeIn 3s ease-in;
 }
-nav a {
-    color: #f0f0f0;
-    margin-left: 1rem;
-    text-decoration: none;
-}
-main {
-    padding: 2rem;
-}
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #222;
-    position: fixed;
-    bottom: 0;
+
+.main-content {
+    position: absolute;
     width: 100%;
+    height: 100%;
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hidden {
+    display: none;
+}
+
+.login-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #1a3059;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #264b87;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-out {
+    animation: fadeOut 1s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; visibility: hidden; }
 }

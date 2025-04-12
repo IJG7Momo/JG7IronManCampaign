@@ -2,26 +2,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>JG7 Ironman Campaign</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
 <body>
-    <header>
-        <h1>Welcome to the Squadron Logbook</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Login</a>
-        </nav>
-    </header>
-    <main>
-        <p>This is the first prototype of the JG7 Ironman Campaign logbook website.</p>
-        <p>Features like character tracking, missions, and campaign logs are coming soon.</p>
-    </main>
-    <footer>
-        <p>&copy; 2025 JG7 Ironman Campaign</p>
-    </footer>
+    <div class="splash-screen">
+        <div class="splash-content">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="JG7 Logo" class="logo" />
+            <h1 class="title">I. Gruppe</h1>
+            <h2 class="subtitle">Jagdgeschwader 7 Nowotny</h2>
+        </div>
+    </div>
+    <div class="main-content hidden">
+        <button class="login-btn">Login</button>
+    </div>
+
+    <script>
+        // Animation timing
+        setTimeout(() => {
+            document.querySelector('.splash-screen').classList.add('fade-out');
+            document.querySelector('.main-content').classList.remove('hidden');
+        }, 4000); // 4 Sekunden Splash
+    </script>
 </body>
 </html>
