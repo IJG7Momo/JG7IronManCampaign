@@ -1,1 +1,18 @@
-body { background: #111; color: white; }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(to right, rgba(26,48,89,0.25), rgba(126,80,71,0.25));
+    color: white;
+    padding: 2rem;
+}
+.landing-body .splash-screen {
+    text-align: center;
+    padding: 100px 0;
+}
+.hidden {
+    display: none;
+}
+.centered-title {
+    text-align: center;
+}
