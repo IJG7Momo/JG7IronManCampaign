@@ -1,1 +1,0 @@
-// JavaScript for transitions and collapsible rule sections
