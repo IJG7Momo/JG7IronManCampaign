@@ -7,7 +7,6 @@ body, html {
     font-family: Arial, sans-serif;
     overflow: hidden;
 }
-
 .splash-screen {
     position: absolute;
     width: 100%;
@@ -20,32 +19,27 @@ body, html {
     animation: fadeIn 2s ease-in;
     z-index: 10;
 }
-
 .splash-content {
     text-align: center;
     color: #ffffff;
     animation: fadeIn 2s ease-in;
 }
-
 .logo {
     width: 200px;
     height: auto;
     margin-bottom: 1rem;
     animation: fadeIn 2s ease-in;
 }
-
 .title {
     margin: 0;
     font-size: 2rem;
     animation: fadeIn 2.5s ease-in;
 }
-
 .subtitle {
     margin: 0;
     font-size: 1.5rem;
     animation: fadeIn 3s ease-in;
 }
-
 .main-content {
     position: absolute;
     width: 100%;
@@ -56,11 +50,9 @@ body, html {
     align-items: center;
     flex-direction: column;
 }
-
 .hidden {
     display: none;
 }
-
 .login-btn {
     padding: 1rem 2rem;
     font-size: 1.2rem;
@@ -71,20 +63,16 @@ body, html {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
 .login-btn:hover {
     background-color: #264b87;
 }
-
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
 .fade-out {
     animation: fadeOut 1s ease-out forwards;
 }
-
 @keyframes fadeOut {
     from { opacity: 1; }
     to { opacity: 0; visibility: hidden; }

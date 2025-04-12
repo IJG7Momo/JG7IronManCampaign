@@ -16,15 +16,13 @@
         </div>
     </div>
     <div class="main-content hidden">
-        <button class="login-btn">Login</button>
+        <a href="{{ url_for('login') }}" class="login-btn">Login</a>
     </div>
-
     <script>
-        // Animation timing
         setTimeout(() => {
             document.querySelector('.splash-screen').classList.add('fade-out');
             document.querySelector('.main-content').classList.remove('hidden');
-        }, 4000); // 4 Sekunden Splash
+        }, 6000);
     </script>
 </body>
 </html>
